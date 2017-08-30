@@ -1,20 +1,96 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
+<div ngClass="main funnel">
+  <div class="cover"></div>
+  <div class="dashboard" [ngClass]="{opened :openedDash}">
+    <div class="logo-dash">
+      <img src="../assets/img/DASHBOARD.png" alt="Auscred">
+    </div>
+    <div class="nav-bar" >
+      <ul ngClass="nav-menu">
+        <div class="befored" [style.top]="(currentPhaseNum*45-25)+'px'"></div>
+        <li class="nav-item"  *ngFor="let section of funnelSections" [attr.secID]="section.id" (click)="menuItemClick($event)" [ngClass]="{active: currentPhaseNum == section.id, shown: shownSectionsIds.indexOf(section.id) != -1}">
+          {{section.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="funnel-content">
+    <div class="befored switcher" (click)="openedDash = !openedDash" [ngClass]="{opened :openedDash}"></div>
+    <div class="section" *ngFor="let section of funnelSections" [attr.data-name]="section.name" [ngClass]="{activeSect: currentPhaseNum == section.id? true:false}">
+      <div ngClass="section-title">
+        {{section.title}}
+      </div>
+      <div ngClass="questions-block" >
+        <ng-container *ngFor="let question of section.questions">
+          <ng-container [ngSwitch]="question.type">
 
+            <address-input *ngSwitchCase="'address'"
+                           [questionData]="question"
+                           (onHasAnswer)="handleThis($event)"
+                           [currSection]="section.id"
+            ></address-input>
+
+
+            <currency *ngSwitchCase="'currency'"
+                      [questionData]="question"
+                      (onHasAnswer)="handleThis($event)"
+                      [currSection]="section.id"></currency>
+
+
+            <radio-simple *ngSwitchCase="'radio-simple'"
+                          [questionData]="question"
+                          (onHasAnswer)="handleThis($event)"
+                          [currSection]="section.id"></radio-simple>
+
+            <date-picker *ngSwitchCase="'date-picker'"
+                         [questionData]="question"
+                         (onHasAnswer)="handleThis($event)"
+                         [currSection]="section.id"></date-picker>
+
+
+            <dropdown *ngSwitchCase="'dropdown'"
+                      [questionData]="question"
+                      (onHasAnswer)="handleThis($event)"
+                      [currSection]="section.id"></dropdown>
+
+
+            <number-click *ngSwitchCase="'number-click'"
+                          [questionData]="question"
+                          (onHasAnswer)="handleThis($event)"
+                          [currSection]="section.id"></number-click>
+
+
+            <radio-more *ngSwitchCase="'radio-more'"
+                        [questionData]="question"
+                        (onHaveAnswer)="handleThis($event)"
+                        [currSection]="section.id"></radio-more>
+
+
+            <input-type *ngSwitchCase="'input'"
+                        [questionData]="question"
+                        (onHasAnswer)="handleThis($event)"
+                        [currSection]="section.id"></input-type>
+
+          </ng-container>
+        </ng-container>
+      </div>
+      <button (click)="nextSection()" class="submit-button" [ngClass]="{disabled: !answerObj.sections[section.id-1].complete}">{{funnelSections.length == section.id?'Finish':'Continue to Phase '+(section.id+1)}}</button>
+    </div>
+
+    <div class="sidebar">
+      <div class="support">
+
+      </div>
+      <div class="clients">
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="container">
+    <div class="disclaimer">
+      <!--*The comparison rates are based on a loan amount of $150,000 over a loan term of 25 years. ^The comparison rates are based on a loan amount of $30,000 over a loan term of 5 years. WARNING: This comparison rate is true only for the example given and may not include all fees and charges. Different terms, fees or other loan amounts might result in a different comparison rate. All applications for credit are subject to lender credit approval criteria. | AUSTRALIAN CREDIT AND FINANCE COPYRIGHT © 2015 - ALL RIGHTS RESERVED | Australian Credit and Finance is the trading name of Auscred Pty Ltd, the parent company of your licensed credit assistance provider, Auscred Services Pty Ltd (ACN 164 638 171, Australian Credit Licence Number 442372)-->
+    </div>
+  </div>
+</div>
