@@ -1,6 +1,10 @@
-<div ngClass="question-field-block tel-input">
+<div class="question-field-block text-input {{topStyle}}" [ngClass]="{success: isSuccess}">
     <div ngClass="title">
         {{questionData.title}}
     </div>
-    <input type="tel" placeholder="Phone number" pattern="\d*" class="input phone-input inner-shadow"/>
+    <input type="{{inType}}" placeholder="{{questionData.placeholder}}"
+                            pattern="{{pattern}}"
+                            class="input inner-shadow {{smallClass}}"
+                            (keyup)="onKeyUp($event)"
+                            [textMask]="_textMask" />
 </div>

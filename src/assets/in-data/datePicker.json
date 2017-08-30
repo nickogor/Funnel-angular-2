@@ -1,0 +1,16 @@
+{
+  "type": "date-picker",
+  "name": "birthday",
+  "title": "Select your Birth Day",
+  "add_class" : "",
+  "placeholder": "dd.mm.yyyy",
+  "dateFormat": "dd.mm.yyyy",
+  "disableSince":
+    {
+      "year": 2000, "month": 1, "day": 1
+    },
+  "defaultMonth": "01/1985",
+  "editableDateField" : false,
+  "maxYear": 2000,
+  "minYear": 1910
+}

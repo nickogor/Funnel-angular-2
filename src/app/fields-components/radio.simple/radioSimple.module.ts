@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { DoubleRadioComponent } from "./doubleRadio.component";
+import { RadioSimpleComponent } from "./radioSimple.component";
 
 
 
@@ -9,9 +9,9 @@ import { DoubleRadioComponent } from "./doubleRadio.component";
         BrowserModule
     ],
     declarations: [
-        DoubleRadioComponent
+        RadioSimpleComponent
     ],
     providers: [],
-    bootstrap: [DoubleRadioComponent]
+    bootstrap: [RadioSimpleComponent]
 })
-export class DoubleRadioModule { }
+export class RadioSimpleModule { }

@@ -1,0 +1,29 @@
+{
+  "type": "dropdown",
+  "name": "marital_status",
+  "title": "Your Marital status",
+  "add_class" : "",
+  "selectTitle": "Marital Status",
+  "options" : [
+    {
+      "value":"married",
+      "title":"Married"
+    },
+    {
+      "value":"defacto",
+      "title":"Defacto"
+    },
+    {
+      "value":"single",
+      "title":"Single"
+    },
+    {
+      "value":"divorced",
+      "title":"Divorced"
+    },
+    {
+      "value":"other",
+      "title":"Other"
+    }
+  ]
+}

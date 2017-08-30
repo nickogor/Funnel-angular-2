@@ -1,0 +1,7 @@
+{
+  "type": "address",
+  "name": "address",
+  "title": "Start typing your address and select from the drop down menu",
+  "add_class" : "",
+  "placeholder": "13 John Street,"
+}

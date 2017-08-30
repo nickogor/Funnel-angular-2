@@ -1,0 +1,8 @@
+{
+  "type": "number-click",
+  "name": "depend_number",
+  "title": "Number of dependants",
+  "addClass" : "",
+  "disabled" : false,
+  "firstNumber": 1
+}

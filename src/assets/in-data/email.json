@@ -1,0 +1,8 @@
+{
+  "type": "input",
+  "input_type" : "email",
+  "name": "email",
+  "title": "Email",
+  "addClass" : "",
+  "placeholder":"Email"
+}

@@ -1,19 +1,17 @@
-import {Component, Input} from '@angular/core';
-import {DataTypeInterface} from "../data-type-interface";
-import {isUndefined} from "util";
+import {Component} from '@angular/core';
+import {FieldComponent} from "../../interfaces/field-component-interface";
 
 @Component({
     selector: 'currency',
     templateUrl: './currency.html'
 })
-export class CurrencyComponent {
-    @Input() questionData: DataTypeInterface;
-    inpValue: string = "";
+export class CurrencyComponent extends FieldComponent{
     cursorPos : number;
     comas: number = 0;
-    success : boolean = false;
 
-    constructor(){}
+    constructor(){
+        super()
+    }
 
 
 
@@ -21,7 +19,7 @@ export class CurrencyComponent {
         event.stopPropagation();
 
         var keyVal = event.key;
-        var currVal = this.inpValue;
+        var currVal = this.inVal;
         if (keyVal === "ArrowLeft") {
             this.cursorPos = this.cursorPos > 0 ? this.cursorPos - 1 : 0;
         } else if (keyVal === "ArrowRight") {
@@ -43,8 +41,8 @@ export class CurrencyComponent {
             }
         }
         currVal = currVal.replace(/\D/g,'').replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-        this.inpValue = currVal;
-        let comasCount = (this.inpValue.split(",").length - 1);
+        this.inVal = currVal;
+        let comasCount = (this.inVal.split(",").length - 1);
         if (this.comas < comasCount){
             this.cursorPos++;
             this.comas = comasCount;
@@ -67,7 +65,7 @@ export class CurrencyComponent {
         this.CheckValid(tar.value);
     }
 
-    CheckValid(input = this.inpValue){
-        this.success = /(?=(\d\d\d)+(?!\d))/.test(input);
+    CheckValid(input = this.inVal){
+        this.setSuccess(/(?=(\d\d\d)+(?!\d))/.test(input));
     }
 }

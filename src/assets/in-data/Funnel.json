@@ -1,0 +1,324 @@
+{
+  "funnel": {
+    "name": "Main",
+    "id": 1,
+    "sections": [
+      {
+        "id": 1,
+        "name": "Property Details",
+        "title": "We need your address so that we can get a free online valuation, search for your address.",
+        "questions": [
+          {
+            "id": 1,
+            "type": "address",
+            "name": "address",
+            "title": "Whats your address?",
+            "add_class": "",
+            "placeholder": "13 John Street,"
+          },
+          {
+            "id": 2,
+            "type": "currency",
+            "name": "property_worth",
+            "title": "Approximately how much is your property worth?",
+            "add_class": "",
+            "placeholder": "1,000,000"
+          },
+          {
+            "id": 3,
+            "type": "radio-simple",
+            "name": "used_prop",
+            "title": "How is the property used?",
+            "add_class": "",
+            "options": [
+              {
+                "value": "primary_home",
+                "title": "Primary Home"
+              },
+              {
+                "value": "rental_property",
+                "title": "Rental Property"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Loan Details",
+        "title": "Loan Details",
+        "questions": [
+          {
+            "id": 1,
+            "type": "currency",
+            "name": "loan_amount",
+            "title": "What is your current loan amount?",
+            "addClass": "",
+            "placeholder": "1,000,000"
+          },
+          {
+            "id": 2,
+            "type": "dropdown",
+            "name": "repayments",
+            "title": "How regulary do you want to make your repayments?",
+            "add_class": "",
+            "selectTitle": "Repayments cycle",
+            "options": [
+              {
+                "value": "often",
+                "title": "Often"
+              },
+              {
+                "value": "sometimes",
+                "title": "Sometimes"
+              },
+              {
+                "value": "every_day",
+                "title": "Every Day"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "type": "radio-simple",
+            "name": "debts",
+            "title": "Do you have any personal debts to consolidate? (credit cards or personal loans)",
+            "add_class": "",
+            "options": [
+              {
+                "value": "yes",
+                "title": "Yes"
+              },
+              {
+                "value": "no",
+                "title": "No"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Loan Preferences",
+        "title": "Loan Preferences",
+        "questions": [
+          {
+            "id": 1,
+            "type": "radio-simple",
+            "name": "rate-type",
+            "title": "What type of rate are you looking for?",
+            "add_class": "",
+            "options": [
+              {
+                "value": "variable",
+                "title": "Variable"
+              },
+              {
+                "value": "fixed",
+                "title": "Fixed"
+              },
+              {
+                "value": "both",
+                "title": "Both"
+              }
+            ]
+          },
+          {
+            "id" : 2,
+            "type": "number-click",
+            "name": "pay_years",
+            "title": "How many years would you like to repay the loan?",
+            "addClass" : "",
+            "disabled" : false,
+            "firstNumber": 30
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Applicant Questions",
+        "title": "Applicant Questions",
+        "questions": [
+          {
+            "id" : 1,
+            "type": "number-click",
+            "name": "applicants_number",
+            "title": "Number of Applicants",
+            "addClass" : "",
+            "disabled" : true,
+            "firstNumber": 1
+          },
+          {
+            "id" : 2,
+            "type": "input",
+            "input_type" : "full-name",
+            "name": "full_name",
+            "title": "First and Last Name",
+            "addClass" : "",
+            "placeholder":"Full Name"
+          },
+          {
+            "id" : 3,
+            "type": "input",
+            "input_type" : "phone-number",
+            "name": "mobile",
+            "title": "Phone number",
+            "addClass" : "",
+            "placeholder":"Mobile"
+          },
+          {
+            "id" : 4,
+            "type": "input",
+            "input_type" : "email",
+            "name": "email",
+            "title": "Email",
+            "addClass" : "",
+            "placeholder":"Email"
+          },
+          {
+            "id" : 5,
+            "type": "date-picker",
+            "name": "birthday",
+            "title": "Select Date of birth",
+            "add_class" : "",
+            "placeholder": "dd.mm.yyyy",
+            "dateFormat": "dd.mm.yyyy",
+            "disableSince":
+            {
+              "year": 2000, "month": 1, "day": 1
+            },
+            "defaultMonth": "01/1985",
+            "editableDateField" : false,
+            "maxYear": 2000,
+            "minYear": 1910
+          },
+          {
+            "id" : 6,
+            "type": "dropdown",
+            "name": "marital_status",
+            "title": "Your Marital status",
+            "add_class" : "",
+            "selectTitle": "Marital Status",
+            "options" : [
+              {
+                "value":"married",
+                "title":"Married"
+              },
+              {
+                "value":"defacto",
+                "title":"Defacto"
+              },
+              {
+                "value":"single",
+                "title":"Single"
+              },
+              {
+                "value":"divorced",
+                "title":"Divorced"
+              },
+              {
+                "value":"other",
+                "title":"Other"
+              }
+            ]
+          },
+          {
+            "id" : 7,
+            "type": "number-click",
+            "name": "depend_number",
+            "title": "Number of dependants",
+            "addClass" : "",
+            "disabled" : false,
+            "firstNumber": 1
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Employment",
+        "title": "Employment",
+        "questions": [
+          {
+            "id" : 1,
+            "type": "radio-more",
+            "name": "emp_status",
+            "title": "What is your employment status?",
+            "parents": [
+              {
+                "id": "1",
+                "text": "Employee",
+                "add_class": ""
+              },
+              {
+                "id": "2",
+                "text": "Self Employed",
+                "add_class": ""
+              },
+              {
+                "id": "3",
+                "text": "Not Working / Other",
+                "add_class": ""
+              }
+            ],
+            "children" : [
+              {
+                "parent_id": "1",
+                "id" : "1",
+                "text" : "Full-time",
+                "value" : "full-time"
+              },
+              {
+                "parent_id": "1",
+                "id" : "2",
+                "text" : "Part-Time",
+                "value" : "part-time"
+              },
+              {
+                "parent_id": "1",
+                "id" : "3",
+                "text" : "Casual",
+                "value" : "casual"
+              },
+              {
+                "parent_id": "2",
+                "id" : "4",
+                "text" : "Contractor",
+                "value" : "Contractor"
+              },
+              {
+                "parent_id": "2",
+                "id" : "5",
+                "text" : "Sole Trader",
+                "value" : "sole-trader"
+              },
+              {
+                "parent_id": "2",
+                "id" : "6",
+                "text" : "Partnership",
+                "value" : "partnership"
+              },
+              {
+                "parent_id": "2",
+                "id" : "7",
+                "text" : "Company",
+                "value" : "company"
+              },
+              {
+                "parent_id": "3",
+                "id" : "8",
+                "text" : "Retired",
+                "value" : "retired"
+              },
+              {
+                "parent_id": "3",
+                "id" : "9",
+                "text" : "Maternity Leave",
+                "value" : "maternity-leave"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

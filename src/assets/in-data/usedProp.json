@@ -1,0 +1,16 @@
+{
+  "type": "double-radio",
+  "name": "used_prop",
+  "title": "How is the property used?",
+  "add_class" : "",
+  "options" : [
+      {
+        "value":"primary_home",
+        "title":"Primary Home"
+      },
+      {
+        "value":"rental_property",
+        "title":"Rental Property"
+      }
+    ]
+}

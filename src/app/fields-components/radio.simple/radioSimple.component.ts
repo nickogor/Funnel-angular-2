@@ -2,10 +2,10 @@ import {Component} from '@angular/core';
 import {FieldComponent} from "../../interfaces/field-component-interface";
 
 @Component({
-    selector: 'double-radio',
-    templateUrl: './doubleRadio.html'
+    selector: 'radio-simple',
+    templateUrl: './radioSimple.html'
 })
-export class DoubleRadioComponent extends FieldComponent{
+export class RadioSimpleComponent extends FieldComponent{
 
     compStyle: string;
 
@@ -15,8 +15,8 @@ export class DoubleRadioComponent extends FieldComponent{
 
 
     ngOnInit(){
-        this.questionAnswer.name = this.questionData.name;
-        this.compStyle = this.questionData.options > 2?"more-radio":"double-radio";
+        this.setEptyFields();
+        this.compStyle = this.questionData.options.length > 2?"more-radio":"double-radio";
     }
 
     toggleRadio(event){

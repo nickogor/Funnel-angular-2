@@ -1,0 +1,8 @@
+{
+  "type": "input",
+  "input_type" : "full-name",
+  "name": "full_name",
+  "title": "Your Full Name",
+  "addClass" : "",
+  "placeholder":"Full Name"
+}

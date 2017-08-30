@@ -1,10 +1,10 @@
-<div ngClass="question-field-block number-click">
+<div class="question-field-block number-click" [ngClass]="{success: isSuccess}">
     <div ngClass="title">
         {{questionData.title}}
     </div>
     <div ngClass="num-field-group" >
         <button (click)="minusValue()">-</button>
-        <input name="{{questionData.name}}" ngClass="num-input inner-shadow" [disabled]="questionData.disabled" type="number"  value="{{getInVal(questionData.firstNumber)}}">
+        <input name="{{questionData.name}}" ngClass="num-input inner-shadow" [disabled]="questionData.disabled" type="number"  value="{{inputVal}}">
         <button (click)="plusValue()">+</button>
     </div>
 </div>

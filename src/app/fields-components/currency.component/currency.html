@@ -1,10 +1,10 @@
-<div class="question-field-block text-input" [ngClass]="{success: success}">
+<div class="question-field-block text-input" [ngClass]="{success: isSuccess}">
     <div ngClass="title">
         {{questionData.title}}
     </div>
     <input #currency type="tel" placeholder="{{questionData.placeholder}}" name="{{questionData.name}}"
                         (blur)="CheckValid(currency.value)"
-                        value="{{inpValue}}"
+                        value="{{inVal}}"
                         (click)="GetCursorPos($event)"
                         (keydown)="ValidateField($event)"
                         (keyup)="MoveCaret($event)"

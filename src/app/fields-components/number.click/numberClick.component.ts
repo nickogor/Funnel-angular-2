@@ -1,27 +1,40 @@
-import {Component, Input} from '@angular/core';
-import {DataTypeInterface} from "../data-type-interface";
+import {Component} from '@angular/core';
+import {FieldComponent} from "../../interfaces/field-component-interface";
 
 @Component({
     selector: 'number-click',
     templateUrl: './numberClick.html'
 })
-export class NumberClickComponent {
-    @Input() questionData: DataTypeInterface;
+export class NumberClickComponent extends FieldComponent{
+
     inputVal: number;
 
 
-    constructor(){}
+    constructor(){
+        super();
+    }
 
-    getInVal(value):number{
-        this.inputVal = this.inputVal?this.inputVal:value;
-        return this.inputVal;
+    ngOnInit(){
+       this.setEptyFields();
+        this.inputVal = parseInt(this.questionData.firstNumber);
+        this.setInVal();
     }
 
     plusValue():void{
         this.inputVal++;
+        this.setInVal();
     }
 
     minusValue():void{
         this.inputVal--;
+        this.setInVal();
+    }
+
+    setInVal(){
+        let val : number = this.inputVal;
+        if( val > 0){
+            this.inVal = String(val);
+            this.setSuccess(this.inVal.length > 0)
+        }
     }
 }

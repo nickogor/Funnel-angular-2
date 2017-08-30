@@ -1,4 +1,4 @@
-<div class="question-field-block text-input" [ngClass]="{success: success}">
+<div class="question-field-block text-input" [ngClass]="{loading: isLoading, success: isSuccess}">
     <div ngClass="title">
         {{questionData.title}}
     </div>
@@ -6,8 +6,20 @@
            [options]="{
             componentRestrictions: { country: 'AU' }
             }"
-           (blur)="CheckValid(address.value)"
+           (lng)='lng=$event'
+           (blur)="CheckValidHandler($event)"
+           (keyup)="CheckValidHandler($event)"
            (setAddress) = "getAddress($event)"
            [value]="inVal"
            ng2-google-place-autocomplete/>
+    <div id="floatingCirclesG">
+        <div class="f_circleG" id="frotateG_01"></div>
+        <div class="f_circleG" id="frotateG_02"></div>
+        <div class="f_circleG" id="frotateG_03"></div>
+        <div class="f_circleG" id="frotateG_04"></div>
+        <div class="f_circleG" id="frotateG_05"></div>
+        <div class="f_circleG" id="frotateG_06"></div>
+        <div class="f_circleG" id="frotateG_07"></div>
+        <div class="f_circleG" id="frotateG_08"></div>
+    </div>
 </div>

@@ -1,17 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {PhoneNumberComponent} from "./phone.number.component";
+import { InputTypeComponent } from "./input.type.component";
 
 
 
 @ NgModule({
     imports: [
-        BrowserModule
+        BrowserModule,
     ],
     declarations: [
-        PhoneNumberComponent
+        InputTypeComponent
     ],
     providers: [],
-    bootstrap: [PhoneNumberComponent]
+    bootstrap: [InputTypeComponent]
 })
-export class PhoneNumberModule { }
+export class InputTypeModule { }

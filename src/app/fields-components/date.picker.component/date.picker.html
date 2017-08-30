@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="question-field-block date-picker" [ngClass]="{success: isSuccess}">
+    <div ngClass="title">
+        {{questionData.title}}
+    </div>
+    <my-date-picker [placeholder]="questionData.placeholder"
+                    [options]="myDatePickerOptions"
+                    (inputFieldChanged) = "onInputFieldChanged($event)"
+                    [defaultMonth] = "defaultMonth"></my-date-picker>
+</div>
