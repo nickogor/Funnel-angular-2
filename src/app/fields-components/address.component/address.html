@@ -1,0 +1,13 @@
+<div class="question-field-block text-input" [ngClass]="{success: success}">
+    <div ngClass="title">
+        {{questionData.title}}
+    </div>
+    <input #address type="text" name="{{questionData.name}}" (click)="ClickHandle($event)" placeholder="{{questionData.placeholder}}"  class="input address-input inner-shadow"
+           [options]="{
+            componentRestrictions: { country: 'AU' }
+            }"
+           (blur)="CheckValid(address.value)"
+           (setAddress) = "getAddress($event)"
+           [value]="inVal"
+           ng2-google-place-autocomplete/>
+</div>

@@ -1,0 +1,23 @@
+<div class="question-field-block number-click" [ngClass]="{validSuccess: validSuccess}">
+    <div ngClass="title">
+        What is your employment status?
+        {{questionData.title}}
+    </div>
+    <div ngClass="more-radio">
+        <div ngClass="parent_block_radio" *ngFor="let parent of questionData.parents">
+            <label class="radio-style parent-label outer-shadow" [attr.mainID]="parent.id" [ngClass]="{clicked: clicked == parent.id? true:false}">
+                {{parent.text}}
+                <input  name="parent_{{questionData.name}}" (click)="OpenParentRadio($event);" type="radio" hidden >
+            </label>
+            <div ngClass="sub-radio-block" [style.height]="clicked == parent.id?getHeight(parent.id):'0px'"  >
+                <ng-container *ngFor="let child of questionData.children">
+                    <label class="radio-style child-label outer-shadow" *ngIf="child.parent_id == parent.id" [attr.childID]="child.id" [ngClass]="{choosen: choosen == child.id? true:false}">
+                        {{child.text}}
+                        <input  name="emp_status" (click)="ChooseInput($event)" type="radio" value="{{child.value}}" [checked]="choosen == child.id? true:false" hidden >
+                    </label>
+                </ng-container>
+            </div>
+        </div>
+
+    </div>
+</div>

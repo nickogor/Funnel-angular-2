@@ -1,0 +1,9 @@
+{
+  "type": "input",
+  "input-type" : "phone-number",
+  "name": "phone_number",
+  "title": "Mobile",
+  "addClass" : "",
+  "placeholder":"",
+  "firstNumber": 1
+}

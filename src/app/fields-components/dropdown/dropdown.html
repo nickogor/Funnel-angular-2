@@ -1,0 +1,14 @@
+<div ngClass="question-field-block dropdown-q">
+    <div ngClass="title">
+        {{questionData.t}}
+    </div>
+    <div class="dropdown" dropdown >
+        <button class="btn  drop-downbtn outer-shadow" dropdown-open> {{!choosenOption?questionData.selectTitle:choosenOption}}</button>
+        <ul [attr.data-name]=" questionData.name" class="dropdown-menu">
+            <li *ngFor="let option of questionData.options"
+                [attr.data-value]="option.value"
+                [ngClass]="{selected: curSelectedVal == option.value?true:false}"
+                (click)="chooseOption($event)">{{option.title}}</li>
+        </ul>
+    </div>
+</div>

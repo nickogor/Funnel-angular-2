@@ -1,0 +1,12 @@
+<div class="question-field-block simple-radio" [ngClass]="{success: isSuccess}">
+    <div ngClass="title">
+        {{questionData.title}}
+    </div>
+    <div [class]="compStyle">
+        <label class="radio-style outer-shadow" *ngFor="let radio of questionData.options" [ngClass]="{clicked: inVal == radio.value?true:false}" >
+            {{radio.title}}
+            <input  name="{{questionData.name}}" (click)="toggleRadio($event)" type="radio" hidden value="{{radio.value}}"/>
+        </label>
+    </div>
+
+</div>

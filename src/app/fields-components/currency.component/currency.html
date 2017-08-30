@@ -1,0 +1,12 @@
+<div class="question-field-block text-input" [ngClass]="{success: success}">
+    <div ngClass="title">
+        {{questionData.title}}
+    </div>
+    <input #currency type="tel" placeholder="{{questionData.placeholder}}" name="{{questionData.name}}"
+                        (blur)="CheckValid(currency.value)"
+                        value="{{inpValue}}"
+                        (click)="GetCursorPos($event)"
+                        (keydown)="ValidateField($event)"
+                        (keyup)="MoveCaret($event)"
+                        pattern="\d*" class="input currency-input inner-shadow"  />
+</div>

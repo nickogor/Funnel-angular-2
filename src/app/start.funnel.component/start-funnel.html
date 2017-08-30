@@ -1,0 +1,7 @@
+<div *ngFor="let item of data" (click)="startFunnel($event)" [attr.callfunnel]="item.callFunnel" ngClass="property-option">
+    <div ngClass="icon {{item.icon}}">
+    </div>
+    <div ngClass="prop-text">
+        {{item.propText}}
+    </div>
+</div>

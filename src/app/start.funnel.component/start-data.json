@@ -1,0 +1,17 @@
+[
+  {
+    "icon": "icon-f-h",
+    "propText": "Buying my new home"
+  },
+  {
+    "icon": "icon-n-h",
+    "propText": "Buying my next home"
+  },
+  {
+    "icon": "icon-r-h",
+    "propText": "Refinance my home"
+  },
+  {
+    "icon": "icon-r-p",
+    "propText": "Buy Rental Property"
+  }
