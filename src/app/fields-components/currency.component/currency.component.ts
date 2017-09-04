@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import  {Component} from '@angular/core';
 import {FieldComponent} from "../../interfaces/field-component-interface";
 
 @Component({
@@ -18,8 +18,8 @@ export class CurrencyComponent extends FieldComponent{
     ValidateField(event){
         event.stopPropagation();
 
-        var keyVal = event.key;
-        var currVal = this.inVal;
+        let keyVal = event.key;
+        let currVal = this.inVal;
         if (keyVal === "ArrowLeft") {
             this.cursorPos = this.cursorPos > 0 ? this.cursorPos - 1 : 0;
         } else if (keyVal === "ArrowRight") {
@@ -59,7 +59,7 @@ export class CurrencyComponent extends FieldComponent{
     }
 
     MoveCaret(e){
-        var tar = e.target;
+        let tar = e.target;
         tar.focus();
         tar.setSelectionRange(this.cursorPos, this.cursorPos);
         this.CheckValid(tar.value);

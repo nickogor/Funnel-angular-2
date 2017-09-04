@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {EventEmitter, Input, Output} from '@angular/core';
 import {DataTypeInterface} from "./data-type-interface";
 import {AnswerTypesInterface} from "./answer-types-interface";
 
@@ -13,6 +13,7 @@ export class FieldComponent {
         value:'',
         valid : false};
     isSuccess: boolean = false;
+    isError: boolean = false;
     inVal: string = '';
 
 
@@ -29,6 +30,7 @@ export class FieldComponent {
 
     setSuccess(val:boolean){
         this.isSuccess = val;
+        this.isError = !val;
         this.questionAnswer.valid = val;
         if(val){
             this.questionAnswer.value = this.inVal;

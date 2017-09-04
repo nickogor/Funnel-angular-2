@@ -18,7 +18,8 @@
           },
           {
             "id": 2,
-            "type": "currency",
+            "type": "input",
+            "input_type" : "currency",
             "name": "property_worth",
             "title": "Approximately how much is your property worth?",
             "add_class": "",
@@ -50,7 +51,8 @@
         "questions": [
           {
             "id": 1,
-            "type": "currency",
+            "type": "input",
+            "input_type" : "currency",
             "name": "loan_amount",
             "title": "What is your current loan amount?",
             "addClass": "",
@@ -188,7 +190,7 @@
               "year": 2000, "month": 1, "day": 1
             },
             "defaultMonth": "01/1985",
-            "editableDateField" : false,
+            "editableDateField" : true,
             "maxYear": 2000,
             "minYear": 1910
           },

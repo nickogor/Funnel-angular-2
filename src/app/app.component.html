@@ -1,96 +1,54 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div ngClass="main funnel">
-  <div class="cover"></div>
-  <div class="dashboard" [ngClass]="{opened :openedDash}">
-    <div class="logo-dash">
-      <img src="../assets/img/DASHBOARD.png" alt="Auscred">
+<div class="wrapper" [ngClass]="{starting : starting}" *ngIf="fileName == ''">
+  <div id="First" ngClass="first-half half">
+    <div class="cover"></div>
+    <div ngClass="header">
+      <div ngClass="container-own">
+        <div ngClass="logo flex-item">
+          <a href="https://creditandfinance.com.au/"> <img src="../assets/img/logo.png" alt="Auscred"></a>
+        </div>
+        <div ngClass="apply flex-item">
+          Apply Now
+        </div>
+      </div>
     </div>
-    <div class="nav-bar" >
-      <ul ngClass="nav-menu">
-        <div class="befored" [style.top]="(currentPhaseNum*45-25)+'px'"></div>
-        <li class="nav-item"  *ngFor="let section of funnelSections" [attr.secID]="section.id" (click)="menuItemClick($event)" [ngClass]="{active: currentPhaseNum == section.id, shown: shownSectionsIds.indexOf(section.id) != -1}">
-          {{section.name}}
-        </li>
-      </ul>
+    <div ngClass="container">
+      <h1 ngClass="big-title tiny-text">
+        Welcome to the start of your home loan story {{title}}
+      </h1>
+      <h3 ngClass="sub-title tiny-text">
+        ACF is Australia's most advanced home loan platform. More than 30 major lendres in one place for you to compare and apply.
+      </h3>
     </div>
   </div>
-  <div class="funnel-content">
-    <div class="befored switcher" (click)="openedDash = !openedDash" [ngClass]="{opened :openedDash}"></div>
-    <div class="section" *ngFor="let section of funnelSections" [attr.data-name]="section.name" [ngClass]="{activeSect: currentPhaseNum == section.id? true:false}">
-      <div ngClass="section-title">
-        {{section.title}}
-      </div>
-      <div ngClass="questions-block" >
-        <ng-container *ngFor="let question of section.questions">
-          <ng-container [ngSwitch]="question.type">
+  <div id="Over" ngClass="over-top">
+    <div ngClass="container">
+      <!--New Component-->
+      <funnel-type ngClass="row" (onChooseFunnel)="RunFunnel($event)"></funnel-type>
 
-            <address-input *ngSwitchCase="'address'"
-                           [questionData]="question"
-                           (onHasAnswer)="handleThis($event)"
-                           [currSection]="section.id"
-            ></address-input>
-
-
-            <currency *ngSwitchCase="'currency'"
-                      [questionData]="question"
-                      (onHasAnswer)="handleThis($event)"
-                      [currSection]="section.id"></currency>
-
-
-            <radio-simple *ngSwitchCase="'radio-simple'"
-                          [questionData]="question"
-                          (onHasAnswer)="handleThis($event)"
-                          [currSection]="section.id"></radio-simple>
-
-            <date-picker *ngSwitchCase="'date-picker'"
-                         [questionData]="question"
-                         (onHasAnswer)="handleThis($event)"
-                         [currSection]="section.id"></date-picker>
-
-
-            <dropdown *ngSwitchCase="'dropdown'"
-                      [questionData]="question"
-                      (onHasAnswer)="handleThis($event)"
-                      [currSection]="section.id"></dropdown>
-
-
-            <number-click *ngSwitchCase="'number-click'"
-                          [questionData]="question"
-                          (onHasAnswer)="handleThis($event)"
-                          [currSection]="section.id"></number-click>
-
-
-            <radio-more *ngSwitchCase="'radio-more'"
-                        [questionData]="question"
-                        (onHaveAnswer)="handleThis($event)"
-                        [currSection]="section.id"></radio-more>
-
-
-            <input-type *ngSwitchCase="'input'"
-                        [questionData]="question"
-                        (onHasAnswer)="handleThis($event)"
-                        [currSection]="section.id"></input-type>
-
-          </ng-container>
-        </ng-container>
-      </div>
-      <button (click)="nextSection()" class="submit-button" [ngClass]="{disabled: !answerObj.sections[section.id-1].complete}">{{funnelSections.length == section.id?'Finish':'Continue to Phase '+(section.id+1)}}</button>
     </div>
+  </div>
+  <div id="Second" ngClass="second-half half" [style.min-height]="bottomHeight">
 
-    <div class="sidebar">
-      <div class="support">
-
+    <div ngClass="slider-main">
+      <div ngClass="container">
+        <div ngClass="slider-text">
+          Our Lenders we Negotiate with on your behalf
+        </div>
+        <div ngClass="slider">
+          <div  ngClass="container">
+            <div id="Partners" ngClass="partners">
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="clients">
-
+    </div>
+    <div class="footer">
+      <div class="container">
+        <div class="disclaimer">
+          *The comparison rates are based on a loan amount of $150,000 over a loan term of 25 years. ^The comparison rates are based on a loan amount of $30,000 over a loan term of 5 years. WARNING: This comparison rate is true only for the example given and may not include all fees and charges. Different terms, fees or other loan amounts might result in a different comparison rate. All applications for credit are subject to lender credit approval criteria. | AUSTRALIAN CREDIT AND FINANCE COPYRIGHT © 2015 - ALL RIGHTS RESERVED | Australian Credit and Finance is the trading name of Auscred Pty Ltd, the parent company of your licensed credit assistance provider, Auscred Services Pty Ltd (ACN 164 638 171, Australian Credit Licence Number 442372)
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class="footer">
-  <div class="container">
-    <div class="disclaimer">
-      <!--*The comparison rates are based on a loan amount of $150,000 over a loan term of 25 years. ^The comparison rates are based on a loan amount of $30,000 over a loan term of 5 years. WARNING: This comparison rate is true only for the example given and may not include all fees and charges. Different terms, fees or other loan amounts might result in a different comparison rate. All applications for credit are subject to lender credit approval criteria. | AUSTRALIAN CREDIT AND FINANCE COPYRIGHT © 2015 - ALL RIGHTS RESERVED | Australian Credit and Finance is the trading name of Auscred Pty Ltd, the parent company of your licensed credit assistance provider, Auscred Services Pty Ltd (ACN 164 638 171, Australian Credit Licence Number 442372)-->
-    </div>
-  </div>
-</div>
+<funnel *ngIf="fileName != ''" [funnelObject]="funnelObject"></funnel>

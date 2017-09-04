@@ -1,0 +1,88 @@
+<div class="main funnel" [ngClass]="{starting: !started, started: started}" *ngIf="funnelSections">
+  <div class="cover"></div>
+  <div class="dashboard" [ngClass]="{opened :openedDash}">
+    <div class="logo-dash">
+      <img src="../../assets/img/DASHBOARD.png" alt="Auscred">
+    </div>
+    <div class="nav-bar" >
+      <ul ngClass="nav-menu">
+        <div class="befored" [style.top]="(currentPhaseNum*45-25)+'px'"></div>
+        <li class="nav-item"  *ngFor="let section of funnelSections" [attr.secID]="section.id" (click)="menuItemClick($event)" [ngClass]="{active: currentPhaseNum == section.id, shown: shownSectionsIds.indexOf(section.id) != -1}">
+          {{section.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="funnel-content">
+    <div class="befored switcher" (click)="openedDash = !openedDash" [ngClass]="{opened :openedDash}"></div>
+    <div class="section" *ngFor="let section of funnelSections" [attr.data-name]="section.name" [ngClass]="{activeSect: currentPhaseNum == section.id}">
+      <div ngClass="section-title">
+        {{section.title}}
+      </div>
+      <div ngClass="questions-block"  *ngIf="section.questions">
+        <ng-container *ngFor="let question of section.questions">
+          <ng-container [ngSwitch]="question.type">
+
+            <address-input *ngSwitchCase="'address'"
+                           [questionData]="question"
+                           (onHasAnswer)="handleThis($event)"
+                           [currSection]="section.id"
+            ></address-input>
+
+
+            <currency *ngSwitchCase="'currency'"
+                      [questionData]="question"
+                      (onHasAnswer)="handleThis($event)"
+                      [currSection]="section.id"></currency>
+
+
+            <radio-simple *ngSwitchCase="'radio-simple'"
+                          [questionData]="question"
+                          (onHasAnswer)="handleThis($event)"
+                          [currSection]="section.id"></radio-simple>
+
+            <date-picker *ngSwitchCase="'date-picker'"
+                         [questionData]="question"
+                         (onHasAnswer)="handleThis($event)"
+                         [currSection]="section.id"></date-picker>
+
+
+            <dropdown *ngSwitchCase="'dropdown'"
+                      [questionData]="question"
+                      (onHasAnswer)="handleThis($event)"
+                      [currSection]="section.id"></dropdown>
+
+
+            <number-click *ngSwitchCase="'number-click'"
+                          [questionData]="question"
+                          (onHasAnswer)="handleThis($event, section.id)"
+                          [currSection]="section.id"></number-click>
+
+
+            <radio-more *ngSwitchCase="'radio-more'"
+                        [questionData]="question"
+                        (onHaveAnswer)="handleThis($event)"
+                        [currSection]="section.id"></radio-more>
+
+
+            <input-type *ngSwitchCase="'input'"
+                        [questionData]="question"
+                        (onHasAnswer)="handleThis($event)"
+                        [currSection]="section.id"></input-type>
+
+          </ng-container>
+        </ng-container>
+      </div>
+      <button (click)="nextSection()" class="submit-button" [ngClass]="{disabled: !answerObj.sections[section.id-1].complete}">{{funnelSections.length == section.id?'Finish':'Continue to Phase '+(section.id+1)}}</button>
+    </div>
+
+    <div class="sidebar">
+      <div class="support">
+
+      </div>
+      <div class="clients">
+
+      </div>
+    </div>
+  </div>
+</div>

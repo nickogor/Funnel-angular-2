@@ -1,5 +1,5 @@
-import { Component} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {Component, EventEmitter, Output} from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
     selector: 'funnel-type',
@@ -8,6 +8,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class StartComponent {
 
+    @Output() onChooseFunnel = new EventEmitter();
     data: object;
 
 
@@ -20,7 +21,8 @@ export class StartComponent {
     }
 
     startFunnel($event):void{
-        console.log($event.currentTarget.attributes['callfunnel'].value);
+        this.onChooseFunnel.emit($event.currentTarget.attributes['callfunnel'].value);
     }
+
 
 }

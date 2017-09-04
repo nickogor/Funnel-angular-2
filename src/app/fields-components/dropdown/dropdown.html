@@ -1,4 +1,4 @@
-<div class="question-field-block dropdown-q" [ngClass]="{success: isSuccess}">
+<div id="{{questionData.name}}" class="question-field-block dropdown-q" [ngClass]="{success: isSuccess}">
     <div ngClass="title">
         {{questionData.title}}
     </div>
@@ -7,7 +7,7 @@
         <ul [attr.data-name]=" questionData.name" class="dropdown-menu">
             <li *ngFor="let option of questionData.options"
                 [attr.data-value]="option.value"
-                [ngClass]="{selected: inVal == option.value?true:false}"
+                [ngClass]="{selected: inVal == option.value}"
                 (click)="chooseOption($event)">{{option.title}}</li>
         </ul>
     </div>

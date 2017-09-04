@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
-import {GooglePlaceModule} from 'ng2-google-place-autocomplete';
+import {AppComponent} from './app.component';
+import {StartComponent} from './start.funnel.component/start-funnel.component';
+import {FunnelComponent} from "./funnel.component/funnel.component";
 
-import { AppComponent } from './app.component';
-import { StartComponent } from './start.funnel.component/start-funnel.component';
+
+import { GooglePlaceModule } from 'ng2-google-place-autocomplete';
+
 import { DropdownModule } from "ng2-dropdown";
 import { MyDatePickerModule } from "mydatepicker/src/my-date-picker/index";
 import { RadioMoreComponent } from "./fields-components/radio.more/radioMore.component";
@@ -20,10 +22,10 @@ import { InputTypeComponent } from "./fields-components/input.type.component/inp
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TextMaskModule } from "angular2-text-mask";
 
+
 @ NgModule({
     imports: [
         BrowserModule,
-        HttpModule,
         HttpClientModule,
         DropdownModule,
         MyDatePickerModule,
@@ -35,6 +37,7 @@ import { TextMaskModule } from "angular2-text-mask";
     declarations: [
         AppComponent,
         StartComponent,
+        FunnelComponent,
         RadioMoreComponent,
         NumberClickComponent,
         DropdownComponent,
@@ -46,5 +49,6 @@ import { TextMaskModule } from "angular2-text-mask";
     ],
     providers: [],
     bootstrap: [AppComponent],
+    schemas:[NO_ERRORS_SCHEMA]
 })
 export class AppModule { }

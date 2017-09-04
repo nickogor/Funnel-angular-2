@@ -1,12 +1,16 @@
 import {Component} from '@angular/core';
 import {FieldComponent} from "../../interfaces/field-component-interface";
-import { FormControl}  from '@angular/forms'
+import {FormControl}  from '@angular/forms';
+import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
 @Component({
     selector: 'input-type',
     templateUrl: './input.type.html'
 })
+
+
 export class InputTypeComponent extends FieldComponent{
+
 
     inputVal: string;
     inType : string;
@@ -24,13 +28,12 @@ export class InputTypeComponent extends FieldComponent{
 
 
 
-
     constructor(){
         super();
     }
 
     ngOnInit(){
-        this.setEptyFields()
+        this.setEptyFields();
 
         switch(this.questionData.input_type){
             case 'phone-number':
@@ -54,20 +57,21 @@ export class InputTypeComponent extends FieldComponent{
                 break;
                     /**
                      * Currency
-                            case 'currency':
-                                this.inType = 'tel';
-                                this.pattern = "\d*";
-                                this.smallClass = "currency-input";
-                                this._textMask.mask = [ /[1-9]/, /\d/, /\d/, ',',  /\d/, /\d/, /\d/, ',',  /\d/, /\d/, /\d/ ];
-                                this.validatingFunction = this.validateCurr;
-                                break;
                      */
+            case 'currency':
+                this.inType = 'tel';
+                this.pattern = "\d*";
+                this.smallClass = "currency-input";
+                this.validatingFunction = this.validateCurr;
+                this._textMask.mask = numberMask;
+                break;
             default:
                 this.inType = 'text';
                 this.validatingFunction = this.validateText;
                 break;
         }
     }
+
     onKeyUp(e){
         this.setInVal(e.target.value);
     }
@@ -93,10 +97,16 @@ export class InputTypeComponent extends FieldComponent{
     validateText(val:string  = this.inVal):boolean{
         return val.length > 1;
     }
+
     /**
-     * Currency Validating
-            validateCurr(val:string  = this.inVal){
-                return val.length > 4;
-            }
-     **/
+     * Currency Validating **/
+    validateCurr(val:string  = this.inVal){
+        return val.length > 4;
+    }
+
 }
+
+
+const numberMask = createNumberMask({
+    prefix: ''
+});

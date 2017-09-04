@@ -2,21 +2,21 @@
   {
     "icon": "icon-f-h",
     "propText": "Buying my new home",
-    "callFunnel" : "1"
+    "callFunnel" : "Funnel"
   },
   {
     "icon": "icon-n-h",
     "propText": "Buying my next home",
-    "callFunnel" : "1"
+    "callFunnel" : "Funnel"
   },
   {
     "icon": "icon-r-h",
     "propText": "Refinance my home",
-    "callFunnel" : "1"
+    "callFunnel" : "Funnel"
   },
   {
     "icon": "icon-r-p",
     "propText": "Buy Rental Property",
-    "callFunnel" : "1"
+    "callFunnel" : "Funnel"
   }
 ]

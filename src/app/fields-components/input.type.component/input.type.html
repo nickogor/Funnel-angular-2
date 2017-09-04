@@ -1,4 +1,4 @@
-<div class="question-field-block text-input {{topStyle}}" [ngClass]="{success: isSuccess}">
+<div id="{{questionData.name}}" class="question-field-block text-input {{topStyle}}" [ngClass]="{success: isSuccess, wrongField: isError}">
     <div ngClass="title">
         {{questionData.title}}
     </div>
