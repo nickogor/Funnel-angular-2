@@ -2,7 +2,7 @@
   <div class="cover"></div>
   <div class="dashboard" [ngClass]="{opened :openedDash}">
     <div class="logo-dash">
-      <img src="../../assets/img/DASHBOARD.png" alt="Auscred">
+      <img src="./assets/img/logo.png" alt="Auscred">
     </div>
     <div class="nav-bar" >
       <ul ngClass="nav-menu">
@@ -14,75 +14,120 @@
     </div>
   </div>
   <div class="funnel-content">
+      <div ngClass="msg"><img src="./assets/img/icons/talking.png" alt="Message icon"></div>
     <div class="befored switcher" (click)="openedDash = !openedDash" [ngClass]="{opened :openedDash}"></div>
-    <div class="section" *ngFor="let section of funnelSections" [attr.data-name]="section.name" [ngClass]="{activeSect: currentPhaseNum == section.id}">
-      <div ngClass="section-title">
-        {{section.title}}
-      </div>
-      <div ngClass="questions-block"  *ngIf="section.questions">
-        <ng-container *ngFor="let question of section.questions">
-          <ng-container [ngSwitch]="question.type">
-
-            <address-input *ngSwitchCase="'address'"
-                           [questionData]="question"
-                           (onHasAnswer)="handleThis($event)"
-                           [currSection]="section.id"
-            ></address-input>
+    <div class="funnel-wrapper">
+      <div class="section" *ngFor="let section of funnelSections" [attr.data-name]="section.name" [ngClass]="{activeSect: currentPhaseNum == section.id}">
+        <div ngClass="section-title">
+          {{section.title}}
+        </div>
+        <div ngClass="questions-block"  *ngIf="section.questions">
+          <ng-container *ngFor="let question of section.questions">
+            <ng-container *ngIf="checkRef(question)">
+            <ng-container [ngSwitch]="question.type">
 
 
-            <currency *ngSwitchCase="'currency'"
-                      [questionData]="question"
-                      (onHasAnswer)="handleThis($event)"
-                      [currSection]="section.id"></currency>
+              <address-input *ngSwitchCase="'address'"
+                             [questionData]="question"
+                             (onHasAnswer)="handleThis($event)"
+                             (onValidField)="this.forLogsInfo.emit(this.answerObj);"
+                             [currSection]="section.id"
+              ></address-input>
 
 
-            <radio-simple *ngSwitchCase="'radio-simple'"
-                          [questionData]="question"
-                          (onHasAnswer)="handleThis($event)"
-                          [currSection]="section.id"></radio-simple>
-
-            <date-picker *ngSwitchCase="'date-picker'"
-                         [questionData]="question"
-                         (onHasAnswer)="handleThis($event)"
-                         [currSection]="section.id"></date-picker>
-
-
-            <dropdown *ngSwitchCase="'dropdown'"
-                      [questionData]="question"
-                      (onHasAnswer)="handleThis($event)"
-                      [currSection]="section.id"></dropdown>
-
-
-            <number-click *ngSwitchCase="'number-click'"
-                          [questionData]="question"
-                          (onHasAnswer)="handleThis($event, section.id)"
-                          [currSection]="section.id"></number-click>
-
-
-            <radio-more *ngSwitchCase="'radio-more'"
-                        [questionData]="question"
-                        (onHaveAnswer)="handleThis($event)"
-                        [currSection]="section.id"></radio-more>
-
-
-            <input-type *ngSwitchCase="'input'"
+              <currency *ngSwitchCase="'currency'"
                         [questionData]="question"
                         (onHasAnswer)="handleThis($event)"
-                        [currSection]="section.id"></input-type>
+                        (onValidField)="this.forLogsInfo.emit(this.answerObj);"
+                        [currSection]="section.id"></currency>
 
+
+              <radio-simple *ngSwitchCase="'radio-simple'"
+                            [questionData]="question"
+                            (onHasAnswer)="handleThis($event)"
+                            (onValidField)="this.forLogsInfo.emit(this.answerObj);"
+                            (ImportantAction)="HandleAction($event)"
+                            [currSection]="section.id"></radio-simple>
+
+              <date-picker *ngSwitchCase="'date-picker'"
+                           [questionData]="question"
+                           (onHasAnswer)="handleThis($event)"
+                           (onValidField)="this.forLogsInfo.emit(this.answerObj);"
+                           [currSection]="section.id"></date-picker>
+
+
+              <dropdown *ngSwitchCase="'dropdown'"
+                        [questionData]="question"
+                        (onHasAnswer)="handleThis($event)"
+                        (onValidField)="this.forLogsInfo.emit(this.answerObj);"
+                        [currSection]="section.id"></dropdown>
+
+
+              <number-click *ngSwitchCase="'number-click'"
+                            [questionData]="question"
+                            (onHasAnswer)="handleThis($event, section.id)"
+                            (onValidField)="this.forLogsInfo.emit(this.answerObj);"
+                            [currSection]="section.id"></number-click>
+
+
+              <radio-more *ngSwitchCase="'radio-more'"
+                          [questionData]="question"
+                          (onHaveAnswer)="handleThis($event)"
+                          (onValidField)="this.forLogsInfo.emit(this.answerObj);"
+                          [currSection]="section.id"></radio-more>
+
+
+              <input-type *ngSwitchCase="'input'"
+                          [questionData]="question"
+                          (onHasAnswer)="handleThis($event)"
+                          (onValidField)="this.forLogsInfo.emit(this.answerObj);"
+                          [currSection]="section.id"></input-type>
+
+            </ng-container>
+            </ng-container>
           </ng-container>
-        </ng-container>
+        </div>
+        <button (click)="nextSection()" class="submit-button" [ngClass]="{disabled: !answerObj.sections[section.id-1].complete}">{{funnelSections.length == section.id?'Finish':'Continue to Phase '+(section.id+1)}}</button>
       </div>
-      <button (click)="nextSection()" class="submit-button" [ngClass]="{disabled: !answerObj.sections[section.id-1].complete}">{{funnelSections.length == section.id?'Finish':'Continue to Phase '+(section.id+1)}}</button>
-    </div>
 
-    <div class="sidebar">
-      <div class="support">
+      <div class="sidebar">
+        <div class="support blueborder">
+          <img src="./assets/img/hannah.png" alt="Hannah Curtis">
+          <div class="name">Speak to a broker</div>
+          <div class="position">Sen. Mortgage Broker</div>
+          <div routerLink="/sign-up" routerLinkActive="sign-up" class="sendMessage"> Need help? </div>
+        </div>
 
-      </div>
-      <div class="clients">
+        <!--<div class="clientsRate blueborder">-->
+          <!--<div class="title">HOW OUR CLIENTS RATE US</div>-->
+          <!--<div class="logotrust">-->
+              <!--<span class="smallText">ratings powered by </span>-->
+              <!--<img src="./assets/img/trustpilottrimmed.png" alt="Trustpilot">-->
+          <!--</div>-->
+          <!--<div class="trustStars"></div>-->
+          <!--<div class="excelent">-->
+              <!--<span class="greenTxt">Excelent</span>-->
+              <!--<span class="rate"> - 9.6 out of 10 </span>-->
+          <!--</div>-->
+          <!--<div class="review">-->
+            <!--<div class="boldReview">“Excellent experience purchasing life...”</div>-->
+            <!--<div class="tinyReview">Michael Rabasca, 6 days ago</div>-->
+          <!--</div>-->
+          <!--<div class="review">-->
+            <!--<div class="boldReview">“Excellent service!”</div>-->
+            <!--<div class="tinyReview">Steven Manela, 6 days ago</div>-->
+          <!--</div>-->
+          <!--<div class="review">-->
+            <!--<div class="boldReview">“The best rates and a very easy process!”</div>-->
+            <!--<div class="tinyReview">Steven Hoar, 8 days ago</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <div class="productreviewwidget" data-itemid="317586" data-full-width="1" data-num-reviews="3" data-order="best"></div>
+
 
       </div>
     </div>
   </div>
+
 </div>

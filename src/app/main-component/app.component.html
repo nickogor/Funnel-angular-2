@@ -1,0 +1,149 @@
+  <div class="wrapper" [ngClass]="{starting : starting}"  (click)="started?NextSection():''" *ngIf="fileName == ''">
+  <div id="First" ngClass="first-half half">
+    <div class="cover"></div>
+    <div ngClass="header">
+      <div ngClass="container-own">
+        <div ngClass="logo flex-item">
+          <a href="https://creditandfinance.com.au/"> <img src="./assets/img/logo.png" alt="Auscred"></a>
+        </div>
+        <a href="tel:1300 737 868" *ngIf="!started" ngClass="apply flex-item">
+          1300 737 868
+        </a>
+      </div>
+    </div>
+    <div (keypress.space)="started?NextSection():''" *ngIf="started&&!signup" id="Carousel" ngClass="carousel">
+
+      <div [ngClass]="{active: 1  == activeSlide, item: true}" #item_one [attr.data-order]="1" >
+        <div ngClass="container-50">
+          <div ngClass="image">
+            <img src="./assets/img/icons/loantype1.png" alt="" width="178">
+          </div>
+          <div class="title">
+            Tell us the type of loan you are looking for.
+          </div>
+          <div class="subtitle">
+          </div>
+          <button class="continue">Continue</button>
+        </div>
+      </div>
+      <div [ngClass]="{active: item_two.getAttribute('data-order') == activeSlide, item: true}"  #item_two [attr.data-order]="2" >
+        <div ngClass="container-50">
+          <div ngClass="image">
+            <img src="./assets/img/icons/specialist1.png" alt="Loan_type_image" width="178">
+          </div>
+          <div class="title">
+            Our team of specialists will help you decide
+            which home loan is best for you
+          </div>
+          <div class="subtitle">
+          </div>
+          <button class="continue" >Continue</button>
+        </div>
+      </div>
+      <div [ngClass]="{active: item_three.getAttribute('data-order') == activeSlide, item: true}"  #item_three [attr.data-order]="3">
+        <div ngClass="container-50">
+          <div ngClass="image">
+            <img src="./assets/img/icons/searchloans1.png" alt="" width="178">
+          </div>
+          <div class="title">
+            We'll search thousands of home loans for the
+            loans that you could qualify for.
+          </div>
+          <div class="subtitle">
+          </div>
+          <button class="continue" >Continue</button>
+        </div>
+      </div>
+
+
+      <div class="navigation">
+        <div class="item_link" [ngClass]="{active: 1  == activeSlide}" (click)="ChangeSection(0)"></div>
+        <div class="item_link" [ngClass]="{active: 2  == activeSlide}" (click)="ChangeSection(1)"></div>
+        <div class="item_link" [ngClass]="{active: 3  == activeSlide}" (click)="ChangeSection(2)"></div>
+      </div>
+    </div>
+
+
+    <contact-form *ngIf="signup" ></contact-form>
+
+
+    <div *ngIf="!started&&!signup" ngClass="container">
+      <h1 ngClass="big-title tiny-text">
+        The smarter way to get a Home Loan
+      </h1>
+      <h3 ngClass="sub-title tiny-text">
+        Building the world's most efficient lending platform to save you time, money & hassle
+      </h3>
+    </div>
+  </div>
+  <div *ngIf="!started" id="Over" ngClass="over-top">
+    <div ngClass="container">
+      <!--New Component-->
+      <funnel-type (onLoaded)="ChildLoaded()" ngClass="row" (onChooseFunnel)="RunFunnel($event)"></funnel-type>
+
+    </div>
+  </div>
+  <div *ngIf="!started" id="Second" ngClass="second-half half" [style.min-height]="bottomHeight">
+
+    <div ngClass="slider-main">
+      <div ngClass="container">
+        <div ngClass="slider-text">
+          Our Lenders we Negotiate with on your behalf
+        </div>
+        <div ngClass="slider">
+          <div  ngClass="container">
+            <div id="Partners" ngClass="partners">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div ngClass="review_block">
+      <div ngClass="container">
+        <div ngClass="slider-text">
+          How our customers rate us
+        </div>
+        <div ngClass="row margin-top">
+          <div ngClass="review_item">
+            <img ngClass="logot" src="./assets/img/Google_new.png" alt="google"/>
+            <div><span ngClass="rating" >4.2</span><span ngClass="rating_before google"></span></div>
+            <a href="https://www.google.com.au/search?hl=en&ei=EeWUWrzmAYGT8wWnzIyYAw&q=australian+credit+and+finance&oq=australian+credit+and+finance&gs_l=psy-ab.3..0l2j0i20i263k1j0l2j0i22i30k1l5.7830.14237.0.14387.41.17.2.8.9.0.571.2396.0j1j1j0j3j1.6.0....0...1c.1.64.psy-ab..27.14.1697...0i131k1j0i13k1j0i13i30k1.0.FodCuEW1k4A#lrd=0x6b12a8d3c664147f:0x3b2d79ee533e82df,1,,,">70 reviews</a>
+          </div>
+          <div ngClass="review_item">
+            <img ngClass="logot" src="./assets/img/153high.png" alt="productreview"/>
+            <div><span ngClass="rating">4.8</span><span ngClass="rating_before prod"></span></div>
+            <a href="https://www.productreview.com.au/p/australian-credit-and-finance.html">294 reviews</a>
+          </div>
+          <div ngClass="review_item">
+            <img ngClass="logot" src="./assets/img/trustpilot.png" alt="trustpilot"/>
+            <div><span ngClass="rating">8.3</span><span ngClass="rating_before trust"></span></div>
+            <a href="https://www.trustpilot.com/review/creditandfinance.com.au">64 reviews</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div ngClass="start_searching">
+      <div ngClass="block_title">Show me which home loans I qualify for</div>
+      <button (click)="RunFunnel('Funnel')">Start searching</button>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="disclaimer">
+          *The comparison rates are based on a loan amount of $150,000 over a loan term of 25 years. ^The comparison rates are based on a loan amount of $30,000 over a loan term of 5 years. WARNING: This comparison rate is true only for the example given and may not include all fees and charges. Different terms, fees or other loan amounts might result in a different comparison rate. All applications for credit are subject to lender credit approval criteria. | AUSTRALIAN CREDIT AND FINANCE COPYRIGHT © 2015 - ALL RIGHTS RESERVED | Australian Credit and Finance is the trading name of Auscred Pty Ltd, the parent company of your licensed credit assistance provider, Auscred Services Pty Ltd (ACN 164 638 171, Australian Credit Licence Number 442372)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<funnel *ngIf="fileName != ''" [funnelObject]="funnelObject" (runAgain)="RunFunnel($event)"  (forLogsInfo)="UpdateLogs($event)"></funnel>
+
+<div class="loading-main" [style.opacity]="loadScreenOpacity" [style.display]="displayNone">
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+</div>

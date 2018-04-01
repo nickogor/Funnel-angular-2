@@ -1,22 +1,17 @@
 [
   {
     "icon": "icon-f-h",
-    "propText": "Buying my new home",
+    "propText": "Search & Compare Home Loans",
     "callFunnel" : "Funnel"
   },
   {
     "icon": "icon-n-h",
-    "propText": "Buying my next home",
-    "callFunnel" : "Funnel"
-  },
-  {
-    "icon": "icon-r-h",
-    "propText": "Refinance my home",
-    "callFunnel" : "Funnel"
+    "propText": "Speak to a Home Loan Specialist",
+    "callFunnel" : "signup"
   },
   {
     "icon": "icon-r-p",
-    "propText": "Buy Rental Property",
-    "callFunnel" : "Funnel"
+    "propText": "Find out about getting a home loan",
+    "callFunnel" : "onboard"
   }
 ]

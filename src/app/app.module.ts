@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from "@angular/common/http";
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import {AppComponent} from './app.component';
+import {FunnelModule} from "./funnel.component/funnel.module";
+
 import {StartComponent} from './start.funnel.component/start-funnel.component';
 import {FunnelComponent} from "./funnel.component/funnel.component";
 
@@ -21,7 +24,33 @@ import { MainDatePickerComponent } from "./fields-components/date.picker.compone
 import { InputTypeComponent } from "./fields-components/input.type.component/input.type.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TextMaskModule } from "angular2-text-mask";
+import {LogsComponent} from "./logs-component/logs-component";
+import {AppMainComponent} from "./main-component/app.component";
+import {LogsService} from "./logs-component/logs.service";
+import {ContactFormCompoent} from "./contact-form/contact.form.component";
 
+const appRoutes: Routes= [
+    {
+        path: 'admin',
+        component : LogsComponent
+    },
+    {
+        path: 'funnel',
+        component : FunnelComponent
+    },
+    {
+        path: 'home',
+        component : AppMainComponent
+    },
+    {
+        path: 'sign-up',
+        component : ContactFormCompoent
+    },
+    {
+        path: '**',
+        redirectTo: 'home'
+    }
+];
 
 @ NgModule({
     imports: [
@@ -32,7 +61,11 @@ import { TextMaskModule } from "angular2-text-mask";
         GooglePlaceModule,
         FormsModule,
         ReactiveFormsModule,
-        TextMaskModule
+        TextMaskModule,
+        RouterModule.forRoot(
+            appRoutes,
+            {enableTracing: true}  // turn off later
+        )
     ],
     declarations: [
         AppComponent,
@@ -45,9 +78,12 @@ import { TextMaskModule } from "angular2-text-mask";
         CurrencyComponent,
         AddressComponent,
         MainDatePickerComponent,
-        InputTypeComponent
+        InputTypeComponent,
+        AppMainComponent,
+        LogsComponent,
+        ContactFormCompoent
     ],
-    providers: [],
+    providers: [LogsService],
     bootstrap: [AppComponent],
     schemas:[NO_ERRORS_SCHEMA]
 })

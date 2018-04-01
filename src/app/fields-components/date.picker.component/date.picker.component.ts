@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+ import {Component} from '@angular/core';
 import {FieldComponent} from "../../interfaces/field-component-interface";
 import {IMyDpOptions, IMyDateModel, IMyInputFieldChanged, IMyDefaultMonth} from 'mydatepicker/src/my-date-picker';
 
@@ -34,7 +34,6 @@ export class MainDatePickerComponent extends FieldComponent{
 
 
     onInputFieldChanged(event: IMyInputFieldChanged) {
-        console.log(event);
         this.inVal = event.value;
         this.setSuccess(event.valid);
     }

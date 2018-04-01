@@ -9,6 +9,7 @@ import { HttpClient } from "@angular/common/http";
 export class StartComponent {
 
     @Output() onChooseFunnel = new EventEmitter();
+    @Output() onLoaded = new EventEmitter();
     data: object;
 
 
@@ -17,6 +18,7 @@ export class StartComponent {
         this.http.get('./assets/in-data/start-buttons.json').subscribe(data => {
             // Read the result field from the JSON response.
             this.data = data;
+            this.onLoaded.emit();
         });
     }
 

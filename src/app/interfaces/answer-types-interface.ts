@@ -3,5 +3,5 @@ export interface AnswerTypesInterface{
     name: string,
     value: string,
     section: number,
-    valid: boolean
+    valid: boolean,
 }

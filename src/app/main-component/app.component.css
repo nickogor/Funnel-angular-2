@@ -1,0 +1,189 @@
+.review_block{
+    background-color: #f6f6f6;
+    padding-bottom: 80px;
+}
+.review_block .row{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.review_block .row .review_item{
+    width: 30%;
+    padding: 15px;
+    margin: 10px 5px;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+.review_item img.logot{
+    margin-bottom: 10px;
+    margin-top: 5px;
+    max-width: 100%;
+}
+.review_item span.rating{
+    display: inline-flex;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 24px;
+    position: relative;
+    text-align: left;
+    margin-right: 10px;
+    padding-bottom: 1px;
+
+}
+.review_item span.rating_before{
+    display: inline-flex;
+    background: url("../../assets/img/icons/single_star.png") repeat-x;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    vertical-align: sub;
+    margin-bottom: 20px;
+}
+.review_item span.rating_before.google{
+    width: 110px;
+}
+.review_item span.rating_before.prod{
+    width: 119px;
+}
+.review_item span.rating_before.trust{
+    width: 95px;
+}
+.review_item a{
+    color: #0086cd;
+    font-size: 16px;
+}
+
+.start_searching{
+    background-color: #ffffff;
+    padding: 90px 5px;
+}
+.start_searching .block_title{
+    color: #000000;
+    font-family: Roboto, sans-serif;
+    font-size: 34px;
+    margin-bottom: 45px;
+}
+.start_searching button{
+    font-family: Roboto, sans-serif;
+    text-transform: uppercase;
+    background-color: #ff3823;
+    padding: 15px 40px;
+    font-size: 19px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+
+
+.carousel{
+    position: relative;
+    background: #ffffff;
+    color: #000;
+    height: calc(100vh - 90px);
+}
+.carousel .item{
+    opacity: 0;
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100vw;
+    transition: 0.5s all ease;
+    padding-bottom: 15vw;
+}
+.carousel .item.active {
+    opacity: 1;
+    z-index: 10;
+}
+.carousel .title{
+    font-size: 24px;
+    font-weight: 400;
+}
+.carousel .subtitle{
+    font-size: 16px;
+    color: #444444;
+}
+.carousel .image{
+    max-width: 178px;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+.carousel .image img{
+    width: 100%;
+}
+.carousel .navigation{
+    position: absolute;
+    width: 100%;
+    bottom: 10vh;
+}
+.carousel .item_link{
+    cursor: pointer;
+    display: inline-block;
+    background-color: #c5c5c5;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+.carousel .item_link.active{
+    background-color: #0086cd;
+}
+
+.carousel .container-50{
+    width: 50%;
+    margin: 0 auto;
+}
+.margin-top{
+    margin-top: 30px;
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .review_block .row{
+        flex-direction: column;
+        align-items: center;
+    }
+    .review_block .row .review_item{
+        width:100%
+    }
+    .carousel .container-50{
+        width: 95%;
+    }
+    .carousel .image{
+        padding-bottom: 25px;
+    }
+    .carousel .item_link{
+        width: 17px;
+        height: 17px;
+    }
+    .carousel .title{
+        font-size: 19px;
+    }
+    .carousel .item{
+        top: 47%
+    }
+    .carousel .navigation{
+        bottom: 5vh;
+    }
+    button.continue{
+        bottom: 11vh;
+    }
+}
+@media screen and (max-width: 761px) {
+    .signUp .blocks{
+        /*padding-left: 0;*/
+    }
+    .signUp .blocks:before{
+        /*display: none;*/
+    }
+    .signUp .blocks:first-child{
+        margin-top: 40px;
+    }
+}

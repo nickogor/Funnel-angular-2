@@ -1,0 +1,41 @@
+<div class="login" *ngIf="!LoginSuccess">
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form">
+                <input type="text" placeholder="name"/>
+                <input type="password" placeholder="password"/>
+                <input type="text" placeholder="email address"/>
+                <button>create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+            </form>
+            <form class="login-form">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <button type="button" (click)="runLogs()">login</button>
+             </form>
+        </div>
+    </div>
+</div>
+<div class="logs" *ngIf="LoginSuccess">
+    <button *ngIf="madeStats" type="button" (click)="makeStats(logs)">Show Stats</button>
+    <div *ngIf="resultArr.length < 0">
+        Total Sessions: {{resultArr.length}}
+        <div class="session" *ngFor="let a of resultArr">
+            <span>User:</span> {{a.userID}}<br>
+            <span>Session Time:</span> {{(a.timeStamp - a.firstTimeStamp)/1000}}s<br>
+            <div class="sections" *ngFor="let section of a.sections">
+                <span>Section №</span>{{section.id}}<br>
+                <span>Status:</span> {{section.complete?'complete':'not complete'}}<br>
+                <span class="trigger_question" (click)="openQuestion($event)">+</span><span>Questions:</span><br>
+                    <div class="questions" *ngFor="let question of section.questions">
+                        <div>
+                            <span>Question name:</span> {{question.name}}<br>
+                            <span>Question value:</span> {{question.value}}<br>
+                            <span>Question staus:</span> {{question.valid?'valid':'not valid'}}<br>
+                        </div>
+                    </div>
+            </div>
+            -------------------------------------------------------- <br>
+        </div>
+    </div>
+</div>

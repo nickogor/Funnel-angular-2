@@ -1,0 +1,179 @@
+{
+  "funnel": {
+    "name": "Main",
+    "id": 1,
+    "sections": [
+      {
+        "id": 1,
+        "name": "Loan type",
+        "title": "Loan type",
+        "questions": [
+          {
+            "id": 1,
+            "type": "radio-simple",
+            "name": "applicants",
+            "title": "Are you looking to purchase a property or refinancing an existing loan?",
+            "add_class": "",
+            "options": [
+              {
+                "value": "new_purchase",
+                "title": "New Purchase"
+              },
+              {
+                "value": "refinance",
+                "title": "Refinance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Applicants",
+        "title": "Applicants",
+        "questions": [
+          {
+            "id": 1,
+            "type": "radio-simple",
+            "name": "applicants",
+            "title": "How many applicants are there?",
+            "add_class": "",
+            "options": [
+              {
+                "value": "one",
+                "title": "One"
+              },
+              {
+                "value": "two",
+                "title": "Two"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Property found",
+        "title": "Property found",
+        "questions": [
+          {
+            "id": 1,
+            "type": "radio-simple",
+            "name": "found_property",
+            "title": "Have you found a property to purchase yet?",
+            "add_class": "",
+            "options": [
+              {
+                "id" : 1,
+                "value": "no",
+                "title": "No, still looking",
+                "state" : "false"
+              },
+              {
+                "id" : 2,
+                "value": "yes",
+                "title": "Yes",
+                "state" : "false"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "type": "dropdown",
+            "name": "property_type",
+            "title": "What type of property is it?",
+            "add_class": "",
+            "selectTitle": "Property type",
+            "options": [
+              {
+                "value": "apartment",
+                "title": "Apartment/unit/flat"
+              },
+              {
+                "value": "house",
+                "title": "House"
+              },
+              {
+                "value": "townhouse",
+                "title": "Townhouse"
+              },
+              {
+                "value": "not_listed",
+                "title": "Mine is not listed"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Property Details",
+        "title": "Property Details",
+        "questions": [
+          {
+            "id": 1,
+            "ref": "3_1_1",
+            "type": "address",
+            "name": "address",
+            "title": "What's the address of the property you are purchasing?\nAdd the property address manually",
+            "add_class": "",
+            "placeholder": "13 John Street,"
+          },
+          {
+            "id": 2,
+            "type": "radio-simple",
+            "name": "property_age",
+            "title": "Property age\nAre you purchasing an established property or building a new home?",
+            "add_class": "",
+            "options": [
+              {
+                "value": "established",
+                "title": "Established property"
+              },
+              {
+                "value": "new_home",
+                "title": "Building a new home"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "type": "radio-simple",
+            "name": "property_use",
+            "title": "Property use\nAre you buying a home to live in or will it be used as an investment?",
+            "add_class": "",
+            "options": [
+              {
+                "value": "live",
+                "title": "Home to live in"
+              },
+              {
+                "value": "investment",
+                "title": "Investment",
+                "action": "banks_result"
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "type": "input",
+            "input_type" : "currency",
+            "name": "purchase_price",
+            "title": "How much of deposit do you have?",
+            "add_class": "",
+            "placeholder": "1,000,000"
+          },
+          {
+            "id": 5,
+            "type": "input",
+            "input_type" : "currency",
+            "name": "borrowing_amount",
+            "title": "How much do you want to borrow?",
+            "add_class": "",
+            "placeholder": "1,000,000"
+          }
+        ]
+      }
+    ]
+  }
+}

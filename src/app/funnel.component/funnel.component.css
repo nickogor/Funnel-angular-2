@@ -1,0 +1,133 @@
+.funnel-content{
+
+}
+.sidebar{
+    width: 30%;
+    float: left;
+}
+.sidebar .support{
+    text-align: center;
+    padding: 25px 5px 20px;
+    margin-bottom: 20px;
+}
+.name{
+    margin-top: 8px;
+    font-weight: 100;
+    font-size: 16px;
+    color: black;
+}
+.position{
+    margin-top: 10px;
+    color: #888888;
+    font-weight: 100;
+    font-size: 11px;
+}
+.sendMessage{
+    margin-top: 12px;
+    padding: 10px 22px;
+    color: #444;
+    font-size: 13px;
+    border: solid 1px #c0ced7;
+    border-radius: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+.sendMessage:hover{
+    cursor: pointer;
+    background-color: #cbd9e2;
+}
+
+.sidebar .clientsRate{
+    padding: 28px 10px;
+    text-align: center;
+}
+.clientsRate .title{
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 16px;
+}
+.logotrust{
+    margin-bottom: 18px;
+}
+.clientsRate .logotrust .smallText{
+    font-size: 9px;
+    text-transform: uppercase;
+    color: #999;
+    margin-right: 5px;
+}
+.clientsRate .logotrust img{
+    max-height: 15px;
+}
+.clientsRate .trustStars{
+    height: 32px;
+    width: 165px;
+    background: url(../../assets/img/icons/trustStar.png) repeat-x;
+    background-size: contain;
+    margin: 0 auto 12px;
+}
+.clientsRate .excelent .rate{
+    font-weight: 100;
+    color: #999999
+}
+.clientsRate .excelent{
+    margin-bottom: 30px;
+}
+
+.review {
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.review .boldReview{
+    color: #444444;
+    margin-bottom: 3px;
+}
+.review .tinyReview{
+    font-weight: 400;
+    color: #999999;
+}
+.blueborder{
+    border: solid 1px #d2dde4;
+    border-radius: 3px;
+}
+.greenTxt{
+    color: #8fc169;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.msg{
+    position: absolute;
+    right: 30px;
+    top: 16px;
+    cursor: pointer;
+}
+.msg img{
+    z-index: 10;
+    position: relative;
+}
+
+@media screen and (max-width: 1100px) {
+    .sidebar {
+        width: 100%;
+        float: none;
+        display: flex;
+        justify-content: space-between;
+    }
+    .support, .clientsRate{
+        width: 49%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .sidebar {
+        display: block;
+        padding: 0 25px;
+    }
+
+    .support, .clientsRate{
+        width: 100%;
+    }
+}

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900');
 html,body{
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -8,11 +9,13 @@ html,body{
     color:#666;
 }
 h1{
-    font-size: 45px;
+    font-family: Roboto, sans-serif;
+    font-size: 40px;
     margin-top: 60px;
     padding: 0 50px;
 }
 h3{
+    font-family: Roboto, sans-serif;
     font-size: 16px;
     padding: 0 50px;
 }
@@ -45,24 +48,24 @@ label{
 }
 .wrapper{
     opacity: 1;
+    transition: .5s ease-in-out all;
 }
 .wrapper.starting{
     opacity: 0;
-    transition: .5s ease-in-out all;
 }
 .main.funnel{
     opacity: 0;
 }
 .started{
     opacity: 1!important;
-    transition: .5s ease-in-out all;
+    transition: .4s ease-in-out all;
 }
 .main{
     position: relative;
     z-index: 2;
 }
 .header{
-    height: 75px;
+    height: 90px;
 }
 .container-own{
     display: inline-flex;
@@ -87,7 +90,7 @@ label{
 }
 .second-half{
     min-height: 200px;
-    background-color: white;
+    background-color: #ffffff;
     padding-top: 60px;
 }
 .logo-dash img{
@@ -96,6 +99,7 @@ label{
     box-sizing: initial;
 }
 .apply{
+    color: white;
     cursor: pointer;
     font-size: 14px;
     padding: 10px 25px;
@@ -108,6 +112,8 @@ label{
 }
 .apply:hover{
     background-color: rgba(255,255,255,.3);
+    text-decoration: none;
+    color: white;
 }
 .over-top{
     position: relative;
@@ -125,7 +131,7 @@ label{
 }
 .over-top .container .property-option{
     height: 158px;
-    width: 158px;
+    width: 220px;
     background-color: white;
     -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.25);
@@ -163,22 +169,23 @@ label{
 .slider-text{
     margin-top: 50px;
     font-size: 20px;
+    color: black;
 }
 
 .icon{
     background: no-repeat 50% 100%;
 }
 .icon-f-h{
-    background-image: url("assets/img/icons/first home.png");
+    background-image: url("assets/img/icons/zoom.png");
 }
 .icon-n-h{
-    background-image: url("assets/img/icons/next home.png");
+    background-image: url("assets/img/icons/man.png");
 }
 .icon-r-h{
     background-image: url("assets/img/icons/refinance home.png");
 }
 .icon-r-p{
-    background-image: url("assets/img/icons/rental property.png");
+    background-image: url("assets/img/icons/house2.png");
 }
 .partners{
     height: 37px;
@@ -188,14 +195,19 @@ label{
     animation: backgroundScroll 20s linear infinite;
 }
 .footer{
-    padding-bottom: 50px;
+    padding: 50px 0;
     text-align: center;
     color: #b3b3b3;
+    background-color: #f6f6f6;
 }
 .footer .container{
 
 }
-
+.disclaimer{
+    text-align: left;
+    color:black;
+    font-size: 12px;
+}
 
 /***** FUNNEL-DASHBOARD ****/
 
@@ -237,7 +249,12 @@ label{
     transition: all 0.3s;
 }
 .befored.switcher{
-    display: none;
+    display: block;
+    border-bottom: 1px solid #d3dde4;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 60px;
 }
 .nav-bar .nav-menu .nav-item{
     display: none;
@@ -285,15 +302,21 @@ label{
     min-height: 100vh;
     margin-left: 280px;
     background-color: white;
-    padding-top: 120px;
+    padding-top: 125px;
     padding-left: 60px;
     padding-right: 30px;
+    position: relative;
+    display: table;
+    width: calc(100% - 280px);
 }
 .section{
     display: none;
 }
 .section.activeSect{
     display: block;
+    float: left;
+    width: 70%;
+    padding-right: 15px;
 }
 .funnel-content .section .section-title{
     font-size: 30px;
@@ -301,7 +324,6 @@ label{
 }
 .section .questions-block{
     width: 490px;
-
 }
 .section .questions-block .question-field-block{
     padding-top: 50px;
@@ -452,6 +474,8 @@ dropdown .dropdown-menu li.selected{
     width: 50px;
     height: 53px;
     font-size: 20px;
+
+
     text-align: center;
     outline: none;
     background: #fff;
@@ -534,7 +558,7 @@ dropdown .dropdown-menu li.selected{
 }
 .more-radio .radio-style{
     width: 50%;
-    margin: 20px auto 0;
+    margin: 20px 0 0;
     height: 53px;
     cursor: pointer;
     font-size: 16px;
@@ -573,7 +597,7 @@ dropdown .dropdown-menu li.selected{
     transition: all .5s;
 }
 .more-radio .sub-radio-block .radio-style{
-    margin: 10px auto 0;
+    margin: 10px 0 0;
 }
 .more-radio .parent_block_radio .parent-label.clicked + .sub-radio-block{
     display: flex;
@@ -640,6 +664,20 @@ dropdown .dropdown-menu li.selected{
 }
 
 
+button.continue{
+    outline: none;
+    margin-top: 25px;
+    right: calc(50% - 75px);
+    background: transparent;
+    height: 35px;
+    width: 150px;
+    border: 1px solid #0086cd;
+    color: #0086cd;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 3px;
+    z-index: 100;
+}
 /*************************ANIMATION*******************************
  */
 
@@ -828,6 +866,62 @@ dropdown .dropdown-menu li.selected{
 }
 
 
+.spinner {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+    0%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 50% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+      }
+}
+
+.loading-main {
+    opacity: 1;
+    transition: opacity .7s ease-in-out;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: #00358B;
+}
+/* .loading screen is visible when app is not bootstraped yet, .my-app is empty */
+
 
 @-webkit-keyframes backgroundScroll {
     from {background-position: 0 0;}
@@ -838,6 +932,19 @@ dropdown .dropdown-menu li.selected{
     from {background-position: 0 0;}
     to {background-position: -1200px 0;}
 }
+
+
+@media screen and (max-width: 1100px) {
+    .section.activeSect {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+    .section .questions-block{
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 761px) {
     .container, .container-own{
         padding-right: 15px;
@@ -846,13 +953,17 @@ dropdown .dropdown-menu li.selected{
     }
     .over-top .container .property-option {
         height: 128px;
-        width: 128px;
+        width: 180px;
     }
     .over-top .container .property-option .prop-text{
         font-size: 14px;
     }
     .icon {
-        background-size: 35%;
+        background-size: 23%;
+    }
+    .funnel-content{
+        width: 100%
+    ;
     }
 }
 @media screen and (max-width: 554px) {
@@ -869,10 +980,11 @@ dropdown .dropdown-menu li.selected{
     h3 {
         font-size: 14px;
         padding: 0 20px;
+        margin-top: 30px;
     }
 
     .over-top {
-        margin-top: 50px;
+        margin-top: 30px;
         background-color: #fff;
     }
 
@@ -893,27 +1005,38 @@ dropdown .dropdown-menu li.selected{
     }
 
     .over-top .container .property-option {
-        height: 128px;
-        width: 128px;
-        margin: 20px auto;
+        height: 90px;
+        width: 100%;
+        margin: 7px auto;
+        border-radius: 0;
     }
 
     .over-top .container .property-option .prop-text {
-        font-size: 14px;
+        font-size: 16px;
+        width: 70%;
+        height: 100%;
+        float: right;
+        padding: 20px 30px 10px 20px;
     }
-
+    .over-top .container .property-option .icon{
+        height: 100%;
+        float: left;
+        width: 30%;
+        background-size: 50px;
+        background-position: 70% 50%;
+    }
     .icon {
-        background-size: 35%;
+        background-size: 23%;
     }
 
-    .slider-text {
+    .slider-main .slider-text {
         margin-top: 0;
     }
 }
 
     /*** Funnel ***/
 
-    @media screen and (max-width: 554px) {
+    @media screen and (max-width: 761px) {
         .dashboard{
             position: fixed;
             top: 0;
@@ -935,7 +1058,7 @@ dropdown .dropdown-menu li.selected{
             text-align: center;
         }
         .befored.switcher{
-            display: block;
+            display: none;
             content: '';
             position: fixed;
             left: 0;
@@ -971,6 +1094,15 @@ dropdown .dropdown-menu li.selected{
         }
         .funnel-content .section .section-title{
             font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-color: #2296f3;
+            line-height: 58px;
+            height: 58px;
+            padding-left: 30px;
+            color: white;
         }
         .section.activeSect {
             display: block;
@@ -984,10 +1116,11 @@ dropdown .dropdown-menu li.selected{
             /*bottom: 50px;*/
             /*left: auto;*/
             /*top: auto;*/
-        /*}*/
+        /*}*/aaaaaaaaaaaA
         .double-radio .radio-style {
-            font-size: 16px;
+            font-size: 14px;
             white-space: nowrap;
+            padding: 0 10px;
         }
         .double-radio .radio-style:first-child {
             margin-right: 5px;
@@ -997,5 +1130,11 @@ dropdown .dropdown-menu li.selected{
         }
         .date-picker .mydp{
             margin-bottom: -5px;
+        }
+        .more-radio .radio-style{
+            margin: 20px auto 0;
+        }
+        .more-radio .sub-radio-block .radio-style{
+            margin: 10px auto 0;
         }
     }

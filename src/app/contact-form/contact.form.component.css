@@ -1,0 +1,118 @@
+/*--- sign up --*/
+
+.signUp{
+    background-color: #ffffff;
+    min-height: calc(100vh - 90px);
+    color: black;
+}
+.signUp .title{
+    padding-top: 70px;
+    font-weight: 100;
+    font-size: 40px;
+    padding-bottom: 40px;
+}
+.signUp .subtitle{
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 50px;
+    color: #434343;
+}
+.signUp .form{
+    text-align: left;
+}
+.signUp .form .input-text{
+    width: 100%;
+    height: 50px;
+    padding: 0 40px;
+    border-radius: 3px;
+    border: 1px solid #d4d4d4;
+    margin-top: 15px;
+    -webkit-box-shadow: inset 0px 0px 5px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 5px -2px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 5px -2px rgba(0,0,0,0.75);
+    background-repeat: no-repeat;
+    background-position: 15px;
+}
+.signUp .form p{
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 0px;
+}
+.signUp .blocks{
+    position: relative;
+    text-align: left;
+    padding-left: 50px;
+    padding-bottom: 25px;
+}
+.signUp .blocks .title{
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 0;
+    padding-bottom: 10px;
+}
+.signUp .blocks .content{
+    color: #656565;
+}
+.signUp .form button{
+    background-color: #0086cd;
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+    height: 50px;
+    padding: 0 20%;
+    border-radius: 3px;
+    border: none;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.signUp .name{
+    background-image: url("../../assets/img/icons/person.png");
+}
+.signUp .tel{
+    background-image: url("../../assets/img/icons/phone.png");
+}
+.signUp .email{
+    background-image: url("../../assets/img/icons/mail.png");
+}
+.signUp .pass{
+    background-image: url("../../assets/img/icons/pass.png");
+}
+
+.signUp .blocks:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    width: 30px;
+    height: 30px;
+    background: no-repeat 50%;
+}
+.signUp .blocks.star:before{
+    background-image: url("../../assets/img/icons/star.png");
+}
+.signUp .blocks.open:before{
+    background-image: url("../../assets/img/icons/open.png");
+}
+.signUp .blocks.house-clock:before{
+    background-image: url("../../assets/img/icons/house-clock.png");
+}
+
+
+.signUp ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #999999;
+}
+.signUp ::-moz-placeholder { /* Firefox 19+ */
+    color: #999999;
+}
+.signUp :-ms-input-placeholder { /* IE 10+ */
+    color: #999999;
+}
+.signUp :-moz-placeholder { /* Firefox 18- */
+    color: #999999;
+}
+.errored{
+    color: #ff4336;
+    display: block;
+    font-size: 14px;
+}

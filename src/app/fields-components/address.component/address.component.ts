@@ -43,7 +43,6 @@ export class AddressComponent extends FieldComponent{
         }
     }
     SetAddress(data:any):void{
-;
         if(data.error_message){
             console.log(data.error_message);
             this.UpdateValue('');
